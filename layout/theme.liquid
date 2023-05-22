@@ -1,8 +1,26 @@
 <html>
-<head>
+  <head>
     {{ content_for_header }}
-</head>
-<body>
-    {{ content_for_layout}}
-</body>
+    <style>
+      {{ settings.body_font | font_face }}:root {
+        --bodyFont: {{ settings.body_font.family }}
+        ;
+        --bodyFontWeight: {{ settings.body_font.weight }}
+        ;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body>
+    {% section 'header' %}
+    {% section 'featured-slider' %}
+    {% section 'featured-collection' %}
+    {% section 'image-with-text' %}
+    {% section 'multiColumn' %}
+    {% section 'email-signup' %}
+    {% section 'contact-form' %}
+    {% section 'video' %}
+    {{ content_for_layout }}
+  </body>
 </html>

@@ -1,0 +1,75 @@
+<div class="newsletterSectionBox">
+  <h1 class="newsletterSectionHeading">{{ section.settings.newsletter_section_heading }}</h1>
+  <p class="newsletterSectionParagraph">{{ section.settings.newsletter_section_para }}</p>
+  <div class="newsletterEmailBox">
+    <input
+      type="email"
+      placeholder="Email"
+      class="newsletterEmail"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+  </div>
+</div>
+
+<style>
+  .newsletterSectionBox {
+    padding: 5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .newsletterSectionHeading {
+    text-align: center;
+    margin: 0;
+    font-size: 2.3rem;
+    line-height: 18px;
+  }
+  .newsletterSectionParagraph {
+    text-align: center;
+    margin: 0;
+  }
+  .newsletterEmailBox {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    letter-spacing: 1px;
+    border: none;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #092186;
+    background-color: white;
+  }
+  .newsletterEmail {
+    background: transparent;
+    font-size: 16px;
+    width: 90%;
+    border: none;
+    color: #092186;
+    font-family: var(--bodyFont);
+    outline: none;
+  }
+  .newsletterEmail::placeholder {
+    color: #092186;
+  }
+  .fa {
+    font-size: 20px;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Section Heading",
+    "settings": [
+      {
+        "type": "text",
+        "id": "newsletter_section_heading",
+        "label": "Newsletter Section Heading",
+        "default": "Subscribe to our Emails"
+      }, {
+        "type": "richtext",
+        "id": "newsletter_section_para",
+        "label": "Subheading",
+        "default": "<p>Be the first to know about us</p>"
+      }
+    ]
+  }
+{% endschema %}

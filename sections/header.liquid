@@ -1,0 +1,98 @@
+<header class="header">
+  <h1 class="storeTitle">{{ shop.name }}</h1>
+
+  <ul class="navList">
+    {% for link in linklists.main-menu.links %}
+      <li class="navLink">{{ link.title | link_to: link.url }}</li>
+    {%- endfor -%}
+  </ul>
+
+  {% if settings.show_search %}
+    <form action="/search">
+      <input type="search" name="q">
+      <button type="submit">Search</button>
+    </form>
+  {% endif %}
+
+</header>
+
+<style>
+  .header{
+    background-color: {{ section.settings.bg }};
+    height: {{ section.settings.header_size }};
+  }
+  .storeTitle{
+    display: block;
+    text-align: center;
+    color: {{ section.settings.title_color }};
+    font-size: 2rem;
+    margin:0;
+  }
+  .navList{
+    display: flex;
+    list-style-type: none;
+    align-items:center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  .navList .navLink{
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .navList .navLink a{
+    text-decoration: none;
+    color: {{ section.settings.title_color }};
+  }
+
+  .navList .navLink:hover{
+    border-bottom: 0.5px solid black;
+  }
+</style>
+
+
+{%  stylesheet %} 
+  .header{
+    padding: 20px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_search",
+        "label": "Show Search Box",
+        "default": true
+      }, {
+        "type": "color",
+        "id": "bg",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Shop Color"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "range",
+        "id": "header_size",
+        "min": 50,
+        "max": 200,
+        "step": 5,
+        "unit": "px",
+        "label": "Header Size",
+        "default": 110
+      }
+    ]
+  }
+{% endschema %}

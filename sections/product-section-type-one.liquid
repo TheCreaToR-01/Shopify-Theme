@@ -1,0 +1,7 @@
+<h1>Product Section Type One</h1>
+
+{% for product in collections['frontpage'].products %}
+  {% render 'product-item', product: product %}
+  {{- product.title | link_to: product.url -}}
+{% endfor %}
+

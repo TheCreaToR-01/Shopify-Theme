@@ -1,0 +1,69 @@
+<div class="featuredColletionBox">
+  <div class="featuredCollectionHeadingBox">
+    {% if section.settings.section_heading_show %}
+      <h1 class="collectionTitle">{{ section.settings.section_heading }}</h1>
+    {% endif %}
+    {% if section.settings.section_subHeading_show %}
+      <p class="collectionSubHeading">{{ section.settings.section_subHeading }}</p>
+    {% endif %}
+  </div>
+
+  <div class="collectionTab">
+    {% for product in collections['frontpage'].products %}
+      {% render 'product-item', product: product %}
+      {% comment %} {{ product.title | link_to: product.url }} {% endcomment %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .featuredColletionBox {
+    padding-top: 2rem;
+  }
+  .featuredCollectionHeadingBox {
+    padding: 1.5rem 0;
+  }
+  .collectionTitle {
+    text-align: center;
+    padding: 1rem 0;
+    margin: 0;
+  }
+  .collectionSubHeading {
+    text-align: center;
+    margin: 0;
+  }
+  .collectionTab {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Featured Collection",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "section_heading_show",
+        "label": "Show Heading",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "section_subHeading_show",
+        "label": "Show Sub Heading",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section Heading",
+        "default": "Featured Collection"
+      }, {
+        "type": "text",
+        "id": "section_subHeading",
+        "label": "Section Sub Heading",
+        "default": "Try out our latest collection"
+      }
+    ]
+  }
+{% endschema %}

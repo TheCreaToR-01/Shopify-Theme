@@ -1,0 +1,46 @@
+<div class="videoContainer">
+  <video
+    class="theVideo"
+    autoplay={{ section.settings.enable_autoplay }}
+    autoplay
+    {{ %endif %}
+    }
+    muted
+    {% if section.settings.enable_video_loop %}
+    loop
+    {% endif %}><source src="https://cdn.shopify.com/videos/c/o/v/8497b390268e4e2190e0970689da6d1b.mp4" type="video/mp4" />
+  </video>
+</div>
+
+
+<style>
+  .videoContainer {
+    padding: 2rem 0;
+    width: 100vw;
+    height: 50vh;
+  }
+  .theVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Video Section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_video_loop",
+        "label": "Enable Loop",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "enable_autoplay",
+        "label": "Enable Autoplay",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

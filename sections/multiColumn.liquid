@@ -1,0 +1,92 @@
+<div class="multiColumnSection">
+  <h1 class="multiColumnSectionHeading">{{ section.settings.multicolumn_heading }}</h1>
+
+  <div class="multiColumns">
+    <div class="multiColumn">
+      <h2 class="multiColumnHeading">{{ section.settings.column_one_heading }}</h2>
+      <p class="multiColumnParagraph">{{ section.settings.column_one_paragraph }}</p>
+    </div>
+    <div class="multiColumn">
+      <h2 class="multiColumnHeading">{{ section.settings.column_two_heading }}</h2>
+      <p class="multiColumnParagraph">{{ section.settings.column_two_paragraph }}</p>
+    </div>
+    <div class="multiColumn">
+      <h2 class="multiColumnHeading">{{ section.settings.column_three_heading }}</h2>
+      <p class="multiColumnParagraph">{{ section.settings.column_three_paragraph }}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .multiColumnSection {
+    padding: 2rem;
+  }
+  .multiColumnSectionHeading {
+    text-align: center;
+  }
+  .multiColumns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .multiColumn {
+    width: 20%;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgb(235, 235, 235);
+  }
+  .multiColumnHeading {
+    font-weight: 300;
+  }
+  .multiColumnParagraph {
+    text-align: justify;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Image with Text Block",
+    "settings": [
+      {
+        "type": "text",
+        "id": "multicolumn_heading",
+        "label": "MultiColumn Heading",
+        "default": "MultiColumn"
+      },
+      {
+        "type": "text",
+        "id": "column_one_heading",
+        "label": "Column One Heading",
+        "default": "Column One"
+      },
+      {
+        "type": "textarea",
+        "id": "column_one_paragraph",
+        "label": "Column One Paragraph",
+        "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus consequuntur voluptatum alias deserunt? Repellat suscipit delectus numquam voluptas assumenda, quo minus aperiam laborum quisquam et eaque culpa dolore iure quaerat."
+      },
+      {
+        "type": "text",
+        "id": "column_two_heading",
+        "label": "Column Two Heading",
+        "default": "Column Two"
+      }, {
+        "type": "textarea",
+        "id": "column_two_paragraph",
+        "label": "Column Two Paragraph",
+        "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus consequuntur voluptatum alias deserunt? Repellat suscipit delectus numquam voluptas assumenda, quo minus aperiam laborum quisquam et eaque culpa dolore iure quaerat."
+      }, {
+        "type": "text",
+        "id": "column_three_heading",
+        "label": "Column Three Heading",
+        "default": "Column Three"
+      }, {
+        "type": "textarea",
+        "id": "column_three_paragraph",
+        "label": "Column Three Paragraph",
+        "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus consequuntur voluptatum alias deserunt? Repellat suscipit delectus numquam voluptas assumenda, quo minus aperiam laborum quisquam et eaque culpa dolore iure quaerat."
+      }
+    ]
+  }
+{% endschema %}
